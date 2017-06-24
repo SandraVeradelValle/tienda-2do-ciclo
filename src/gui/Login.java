@@ -1,22 +1,27 @@
 package gui;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class Login extends JFrame implements ActionListener {
+	
+	private static final long serialVersionUID = 1L;
 
 	private JPanel contentPane;
 	private JLabel lblUsuario;
@@ -50,49 +55,63 @@ public class Login extends JFrame implements ActionListener {
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+		
+		//contentPane = new JPanel();
 		//contentPane.setBackground(Color.BLACK);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		//setContentPane(contentPane);
+		//contentPane.setLayout(null);
+
+		
+		try {
+			BufferedImage img = ImageIO.read(new File("resources/assets/images/splash-wallpaper.png"));
+			setContentPane(new JLabel(new ImageIcon(img)));
+		}  catch (IOException exp) {
+            exp.printStackTrace();
+        }
+		
 		{
 			lblUsuario = new JLabel("Usuario");
-			lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			//lblUsuario.setForeground(Color.WHITE);
+			lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 15));
+			lblUsuario.setForeground(Color.WHITE);
 			lblUsuario.setBounds(39, 87, 76, 20);
-			contentPane.add(lblUsuario);
+			add(lblUsuario);
 		}
 		{
 			lblContrasea = new JLabel("Contrase\u00F1a");
-			lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			//lblContrasea.setForeground(Color.WHITE);
+			lblContrasea.setFont(new Font("Tahoma", Font.BOLD, 15));
+			lblContrasea.setForeground(Color.WHITE);
 			lblContrasea.setBounds(39, 125, 96, 19);
-			contentPane.add(lblContrasea);
+			add(lblContrasea);
 		}
 		{
 			txtUsu = new JTextField();
 			txtUsu.setBounds(156, 89, 86, 20);
-			contentPane.add(txtUsu);
 			txtUsu.setColumns(10);
+			add(txtUsu);
 		}
 		{
 			pCon = new JPasswordField();
 			pCon.setBounds(156, 126, 86, 20);
-			contentPane.add(pCon);
+			add(pCon);
 		}
 		{
 			btnNewButton = new JButton("ACEPTAR");
 			btnNewButton.addActionListener(this);
 			btnNewButton.setBounds(283, 87, 89, 59);
-			contentPane.add(btnNewButton);
+			add(btnNewButton);
 		}
 		{
 			lblLogin = new JLabel("LOGIN");
 			lblLogin.setForeground(Color.LIGHT_GRAY);
 			lblLogin.setFont(new Font("Arial Black", Font.PLAIN, 19));
 			lblLogin.setBounds(164, 29, 112, 32);
-			contentPane.add(lblLogin);
+			add(lblLogin);
 		}
+        
+        //pack();
+        //setLocationRelativeTo(null);
+        //setVisible(true);
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == btnNewButton) {
