@@ -51,21 +51,21 @@ public class Login extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.BLACK);
+		//contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		{
 			lblUsuario = new JLabel("Usuario");
 			lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblUsuario.setForeground(Color.WHITE);
+			//lblUsuario.setForeground(Color.WHITE);
 			lblUsuario.setBounds(39, 87, 76, 20);
 			contentPane.add(lblUsuario);
 		}
 		{
 			lblContrasea = new JLabel("Contrase\u00F1a");
 			lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblContrasea.setForeground(Color.WHITE);
+			//lblContrasea.setForeground(Color.WHITE);
 			lblContrasea.setBounds(39, 125, 96, 19);
 			contentPane.add(lblContrasea);
 		}
@@ -111,7 +111,7 @@ public class Login extends JFrame implements ActionListener {
 		t.setVisible(true);
 	}
 	else{
-		JOptionPane.showMessageDialog(null, "Usuario o contraseña erróneos", "¡ERROR!", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Usuario o contraseï¿½a errï¿½neos", "ï¿½ERROR!", JOptionPane.ERROR_MESSAGE);
 		txtUsu.setText("");
 		pCon.setText("");
 		txtUsu.requestFocus();
