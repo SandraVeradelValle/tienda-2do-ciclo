@@ -1,10 +1,13 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -12,35 +15,35 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class Tienda extends JFrame implements ActionListener {
-	// Datos mínimos del primer modelo
+	// Datos m�nimos del primer modelo
 	public static String codigo0 = "MT0";
 	public static String modelo0 = "Aviator";
 	public static double precio0 = 124.9;
 	public static double ancho0 = 63.5;
 	public static double alto0 = 30.9;
 	public static double fondo0 = 29.2;
-	// Datos mínimos del segundo modelo
+	// Datos m�nimos del segundo modelo
 	public static String codigo1 = "MT1";
 	public static String modelo1 = "Century";
 	public static double precio1 = 174.9;
 	public static double ancho1 = 75.0;
 	public static double alto1 = 28.5;
 	public static double fondo1 = 30.0;
-	// Datos mínimos del tercer modelo
+	// Datos m�nimos del tercer modelo
 	public static String codigo2 = "MT2";
 	public static String modelo2 = "Benneton";
 	public static double precio2 = 159.9;
 	public static double ancho2 = 65.2;
 	public static double alto2 = 31.2;
 	public static double fondo2 = 29.4;
-	// Datos mínimos del cuarto modelo
+	// Datos m�nimos del cuarto modelo
 	public static String codigo3 = "MT3";
 	public static String modelo3 = "Lucas";
 	public static double precio3 = 99.9;
 	public static double ancho3 = 45.0;
 	public static double alto3 = 70.0;
 	public static double fondo3 = 25.0;
-	// Datos mínimos del quinto modelo
+	// Datos m�nimos del quinto modelo
 	public static String codigo4 = "MT4";
 	public static String modelo4 = "Samsonite";
 	public static double precio4 = 84.9;
@@ -52,13 +55,13 @@ public class Tienda extends JFrame implements ActionListener {
 	public static double porcentaje2 = 5.5;
 	public static double porcentaje3 = 7.0;
 	public static double porcentaje4 = 8.5;
-	// Cantidad óptima de maletas vendidas
+	// Cantidad �ptima de maletas vendidas
 	public static int cantidadOptima = 50;
-	// Cantidad mínima de maletas adquiridas para obtener el obsequio
+	// Cantidad m�nima de maletas adquiridas para obtener el obsequio
 	public static int cantidadMinima = 20;
 	// Obsequio
 	public static String obsequio = "USB";
-	// Número de cliente que recibe el premio sorpresa
+	// N�mero de cliente que recibe el premio sorpresa
 	public static int numeroClientePremiado = 5;
 	// Premio sorpresa
 	public static String premioSorpresa = "Una agenda";
@@ -102,9 +105,9 @@ public class Tienda extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Tienda() {
-		setTitle("Tienda");/*
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);Quitamos la acción de cerrar*/
-		setDefaultCloseOperation(0);
+		setTitle("Tienda");
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(0); //Quitamos la acci�n de cerrar
 		setBounds(100, 100, 450, 300);
 		{
 			menuBar = new JMenuBar();
@@ -185,10 +188,15 @@ public class Tienda extends JFrame implements ActionListener {
 				}
 			}
 		}
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+
+    	setLayout(new BorderLayout());
+    	ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("img/maletas.jpg"));
+    	setContentPane(new JLabel(image));
+    	
+		//contentPane = new JPanel();
+		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		//setContentPane(contentPane);
+		//contentPane.setLayout(null);
 		
 	//try{
 			//BufferedImage ima = ImageIO.read(new File("/Tienda/src/img/maletas.jpg"));
